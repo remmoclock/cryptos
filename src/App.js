@@ -17,7 +17,11 @@ function App() {
   return (
     <div className="App">
       <div className="cryptoHeader">
-        <img src={coinslist && coinslist[0] && coinslist[0].icon} />
+        <img
+          src={coinslist && coinslist[0] && coinslist[0].icon}
+          alt="header"
+        />
+        <input type="text" placeholder="Bitcoin..." />
       </div>
       <div className="cryptoDisplay">
         {coinslist.map((coin) => (
