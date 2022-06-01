@@ -16,7 +16,16 @@ function App() {
   return (
     <div className="App">
       <div className="cryptoHeader">header</div>
-      <div className="cryptoDisplay">Coins</div>
+      <div className="cryptoDisplay">
+        {coinslist.map((coin) => {
+          return (
+            <>
+              <h1>{coin.name}</h1>
+              <p>{coin.price}</p>
+            </>
+          );
+        })}
+      </div>
     </div>
   );
 }
