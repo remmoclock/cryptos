@@ -19,10 +19,12 @@ function App() {
       <div className="cryptoDisplay">
         {coinslist.map((coin) => {
           return (
-            <>
+            <div key={coin.id}>
               <h1>{coin.name}</h1>
-              <p>{coin.price}</p>
-            </>
+              <p>
+                {coin.price < 1 ? coin.price.toFixed(4) : coin.price.toFixed(2)}
+              </p>
+            </div>
           );
         })}
       </div>
