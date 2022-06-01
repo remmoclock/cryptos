@@ -16,7 +16,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className="cryptoHeader">Crypto</div>
+      <div className="cryptoHeader">
+        <img src={coinslist && coinslist[0] && coinslist[0].icon} />
+      </div>
       <div className="cryptoDisplay">
         {coinslist.map((coin) => (
           <Coin coin={coin} key={coin.id} />
