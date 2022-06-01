@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Coin from "./components/Coin/Coin";
 
 function App() {
   const [coinslist, setCoinslist] = useState([]);
@@ -17,16 +18,9 @@ function App() {
     <div className="App">
       <div className="cryptoHeader">header</div>
       <div className="cryptoDisplay">
-        {coinslist.map((coin) => {
-          return (
-            <div key={coin.id}>
-              <h1>{coin.name}</h1>
-              <p>
-                {coin.price < 1 ? coin.price.toFixed(4) : coin.price.toFixed(2)}
-              </p>
-            </div>
-          );
-        })}
+        {coinslist.map((coin) => (
+          <Coin coin={coin} key={coin.id} />
+        ))}
       </div>
     </div>
   );
