@@ -4,7 +4,7 @@ import Coin from "./components/Coin/Coin";
 
 function App() {
   const [coinslist, setCoinslist] = useState([]);
-  const [searchCoin, setSearchCoin] = useState("")
+  const [searchCoin, setSearchCoin] = useState("");
 
   useEffect(() => {
     axios
@@ -13,21 +13,22 @@ function App() {
         console.log(response.data.coins);
         setCoinslist(response.data.coins);
       });
-    }, []);
-    console.log(searchCoin);
+  }, []);
+  console.log(searchCoin);
 
-   const filteredCoins = coinslist.filter((coin) => {
-      return coin.name.toLowerCase().includes(searchCoin.toLowerCase()) 
-    })
+  const filteredCoins = coinslist.filter((coin) => {
+    return coin.name.toLowerCase().includes(searchCoin.toLowerCase());
+  });
 
   return (
     <div className="App">
       <div className="cryptoHeader">
-        <img
-          src={coinslist && coinslist[0] && coinslist[0].icon}
-          alt="header"
+        <img src={coinslist && coinslist[0] && coinslist[0].icon} alt="" />
+        <input
+          type="text"
+          placeholder="Bitcoin..."
+          onChange={(e) => setSearchCoin(e.target.value)}
         />
-        <input type="text" placeholder="Bitcoin..." onChange={(e) => setSearchCoin(e.target.value)} />
       </div>
       <div className="cryptoDisplay">
         {filteredCoins.map((coin) => (
